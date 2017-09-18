@@ -1,0 +1,15 @@
+.bg {
+  background-color: #5f021f !important;
+}
+
+.accent {
+  background-color: #ff6e40 !important;
+}
+
+.accent--text {
+  color: #ff6e40 !important;
+}
+
+#logo {
+  filter: invert(100%);
+}
