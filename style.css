@@ -1,7 +1,11 @@
 .bg {
   background-color: #5f021f !important;
+  font-family: 'Ubuntu', sans-serif;
 }
 
+.secondary {
+  background-color: #212121 !important;
+}
 .accent {
   background-color: #ff6e40 !important;
 }
@@ -10,6 +14,28 @@
   color: #ff6e40 !important;
 }
 
-#logo {
-  filter: invert(100%);
+.toolbar__content .icon {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.fa-twitter:hover {
+  color: #1da1f2;
+}
+
+.fa-facebook-square:hover {
+  color: #3b5998;
+}
+
+.fa-google-plus:hover {
+  color: #db4437;
+}
+
+.main-title {
+  font-family: 'Shojumaru', cursive;
+  text-shadow: 2px 4px 10px black;
+}
+
+.sub-title {
+  text-shadow: 2px 4px 10px black;
 }

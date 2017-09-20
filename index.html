@@ -5,6 +5,7 @@
   <title>Bento-Box</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Shojumaru|Ubuntu" rel="stylesheet">
   <script src="https://use.fontawesome.com/73c8e2621d.js"></script>
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
@@ -14,28 +15,37 @@
   <div id="app">
     <v-app dark>
       <v-toolbar class="bg">
-        <v-toolbar-title>Bento-Box Lieferservice</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>fa-twitter</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>fa-facebook-square</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>fa-google-plus</v-icon>
-        </v-btn>
+        <v-layout row justify-space-between>
+          <v-toolbar-title class="main-title">Bento-Box</v-toolbar-title>
+
+          <div>
+            <v-icon>fa-twitter</v-icon>
+            <v-icon>fa-facebook-square</v-icon>
+            <v-icon>fa-google-plus</v-icon>
+          </div>
+
+          <v-menu class="mr-2">
+            <v-toolbar-title slot="activator">
+              <span>{{selectedLang}}</span>
+              <v-icon dark>arrow_drop_down</v-icon>
+            </v-toolbar-title>
+            <v-list>
+              <v-list-tile v-for="lang in langs" :key="lang" @click="selectedLang = lang">
+                <v-list-tile-title v-text="lang"></v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+        </v-layout>
       </v-toolbar>
       </v-toolbar>
       <main class="bg">
         <section>
-          <v-parallax src="assets/hero.jpg" height="600">
+          <v-parallax src="assets/hero.jpg" height="500">
             <v-layout column align-center justify-center>
-              <img src="assets/ki.png" id="logo" alt="qi hanzi" width="200px">
-              <h1 class="mb-2 display-3 text-xs-center">Parallax Template</h1>
-              <div class="headline mb-3 text-xs-center">Powered by Vuetify</div>
+              <h1 class="mb-2 display-3 text-xs-center main-title">Bento-Box</h1>
+              <div class="headline mb-3 text-xs-center sub-title">Service de livraison de boîtes à bentō</div>
               <v-btn class="accent mt-5" large>
-                Get Started
+                Vers la boutique
               </v-btn>
             </v-layout>
           </v-parallax>
@@ -57,7 +67,7 @@
                   <v-flex xs12 md4>
                     <v-card class="elevation-0 transparent">
                       <v-card-text class="text-xs-center">
-                        <v-icon x-large class="accent--text">color_lens</v-icon>
+                        <v-icon x-large class="accent--text">mdi-watch</v-icon>
                       </v-card-text>
                       <v-card-title primary-title class="layout justify-center">
                         <div class="headline text-xs-center">Material Design</div>
@@ -111,7 +121,7 @@
               <div class="headline mb-3 text-xs-center">Web development has never been easier</div>
               <em>Kick-start your application today</em>
               <v-btn class="accent mt-5" large href="/pre-made-themes">
-                Get Started
+                Vers la boutique
               </v-btn>
             </v-layout>
           </v-parallax>
@@ -195,7 +205,8 @@
       el: '#app',
       data() {
         return {
-          title: 'Your Logo'
+          langs: ['français', 'Deutsch', 'English', '日本語'],
+          selectedLang: 'français'
         }
       }
     })
