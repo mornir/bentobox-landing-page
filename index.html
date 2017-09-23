@@ -4,11 +4,9 @@
 <head>
   <title>Bento-Box</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Shojumaru|Ubuntu" rel="stylesheet">
-  <script src="https://use.fontawesome.com/73c8e2621d.js"></script>
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -18,19 +16,39 @@
         <v-layout row justify-space-between>
           <v-toolbar-title class="main-title">Bento-Box</v-toolbar-title>
 
-          <div>
-            <v-icon>fa-twitter</v-icon>
-            <v-icon>fa-facebook-square</v-icon>
-            <v-icon>fa-google-plus</v-icon>
+          <div class="social-links hidden-xs-only">
+            <a href="https://twitter.com/LifeKI78" target="blank">
+              <v-icon>fa-twitter</v-icon>
+            </a>
+            <a href="https://www.facebook.com/LifeKI78" target="blank">
+              <v-icon>fa-facebook-square</v-icon>
+            </a>
+            <a href="https://plus.google.com/117479743608829098223" target="blank">
+              <v-icon>fa-google-plus</v-icon>
+            </a>
+            <a href="https://lifeki.blogspot.ch/" target="blank">
+            <img alt="blogger" src="/assets/blogger.png" id="blogger">
+            </a>
           </div>
 
-          <v-menu class="mr-2">
+          <v-menu class="hidden-xs-only">
             <v-toolbar-title slot="activator">
               <span>{{selectedLang}}</span>
-              <v-icon dark>arrow_drop_down</v-icon>
+              <v-icon dark>fa-caret-down</v-icon>
             </v-toolbar-title>
             <v-list>
               <v-list-tile v-for="lang in langs" :key="lang" @click="selectedLang = lang">
+                <v-list-tile-title v-text="lang"></v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+          <v-menu class="hidden-sm-and-up">
+            <v-toolbar-title slot="activator">
+              <span>{{shortSelectedLang}}</span>
+              <v-icon dark>fa-caret-down</v-icon>
+            </v-toolbar-title>
+            <v-list>
+              <v-list-tile v-for="lang in shortLangs" :key="lang" @click="selectedLang = lang">
                 <v-list-tile-title v-text="lang"></v-list-tile-title>
               </v-list-tile>
             </v-list>
@@ -44,7 +62,7 @@
             <v-layout column align-center justify-center>
               <h1 class="mb-2 display-3 text-xs-center main-title">Bento-Box</h1>
               <div class="headline mb-3 text-xs-center sub-title">Service de livraison de boîtes à bentō</div>
-              <v-btn class="accent mt-5" large>
+              <v-btn class="accent mt-5" large round href="https://bentobox-lieferservice.ch/fr/">
                 Vers la boutique
               </v-btn>
             </v-layout>
@@ -55,9 +73,9 @@
           <v-layout column wrap class="my-5" align-center>
             <v-flex xs12 sm4 class="my-3">
               <div class="text-xs-center">
-                <h2 class="headline">The best way to start developing</h2>
+                <h2 class="headline">Mercredi midi c'est bentō !</h2>
                 <span class="subheading">
-                  Cras facilisis mi vitae nunc
+                  Recevez votre boîte à bentō en toute simplicité
                 </span>
               </div>
             </v-flex>
@@ -67,45 +85,43 @@
                   <v-flex xs12 md4>
                     <v-card class="elevation-0 transparent">
                       <v-card-text class="text-xs-center">
-                        <v-icon x-large class="accent--text">mdi-watch</v-icon>
+                        <v-icon x-large class="accent--text">fa-truck</v-icon>
                       </v-card-text>
                       <v-card-title primary-title class="layout justify-center">
-                        <div class="headline text-xs-center">Material Design</div>
+                        <div class="headline text-xs-center">Faites-vous livrer
+                        </div>
                       </v-card-title>
                       <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. Pellentesque habitant morbi tristique senectus
-                        et netus et malesuada fames ac turpis egestas. Nullam in aliquet odio. Aliquam eu est vitae tellus
-                        bibendum tincidunt. Suspendisse potenti.
+                        Nous livrons à domicile ou sur votre lieu de travail tous les mercredis en ville de Bienne. Vous pouvez également venir chercher
+                        votre boîte à bento directement à notre cuisine.
                       </v-card-text>
                     </v-card>
                   </v-flex>
                   <v-flex xs12 md4>
                     <v-card class="elevation-0 transparent">
                       <v-card-text class="text-xs-center">
-                        <v-icon x-large class="accent--text">flash_on</v-icon>
+                        <img alt="bentobox" src="/assets/bento.svg" width="42" heigth="41.6">
                       </v-card-text>
                       <v-card-title primary-title class="layout justify-center">
-                        <div class="headline">Fast development</div>
+                        <div class="headline text-xs-center">Savourez</div>
                       </v-card-title>
                       <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. Pellentesque habitant morbi tristique senectus
-                        et netus et malesuada fames ac turpis egestas. Nullam in aliquet odio. Aliquam eu est vitae tellus
-                        bibendum tincidunt. Suspendisse potenti.
+                        Nous utilisons des produits frais, bios et de saison et nos boîtes à bentō sont préparés fraichement le matin de la livraison.
+                        Les menus sont sélectionnés et confectionés avec soin et passion.
                       </v-card-text>
                     </v-card>
                   </v-flex>
                   <v-flex xs12 md4>
                     <v-card class="elevation-0 transparent">
                       <v-card-text class="text-xs-center">
-                        <v-icon x-large class="accent--text">build</v-icon>
+                        <v-icon x-large class="accent--text">fa-heart</v-icon>
                       </v-card-text>
                       <v-card-title primary-title class="layout justify-center">
-                        <div class="headline text-xs-center">Completely Open Sourced</div>
+                        <div class="headline">Abonnez-vous</div>
                       </v-card-title>
                       <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. Pellentesque habitant morbi tristique senectus
-                        et netus et malesuada fames ac turpis egestas. Nullam in aliquet odio. Aliquam eu est vitae tellus
-                        bibendum tincidunt. Suspendisse potenti.
+                        Abonnez votre repas de midi japonais ! Commencer par essayer notre boîte à bentō à l'essai. Si vous aimez, vous pouvez prendre
+                        un abonnement.
                       </v-card-text>
                     </v-card>
                   </v-flex>
@@ -116,12 +132,11 @@
         </section>
 
         <section>
-          <v-parallax src="assets/bottom.jpg" height="300">
+          <v-parallax src="assets/bottom.jpg" height="300" id="secondHero">
             <v-layout column align-center justify-center>
-              <div class="headline mb-3 text-xs-center">Web development has never been easier</div>
-              <em>Kick-start your application today</em>
-              <v-btn class="accent mt-5" large href="/pre-made-themes">
-                Vers la boutique
+              <div class="headline mb-1 text-xs-center sub-title">La boîte à bentō, c'est quoi exactement ?</div>
+              <v-btn class="accent mt-4" large href="https://bentobox-lieferservice.ch/fr/quest-ce-quun-bento/" round>
+                En savoir plus sur le bentō
               </v-btn>
             </v-layout>
           </v-parallax>
@@ -130,67 +145,90 @@
         <section>
           <v-container grid-list-xl>
             <v-layout row wrap justify-center class="my-5">
-              <v-flex xs12 sm4>
+              <v-flex xs12 sm6 md4>
                 <v-card class="elevation-0 transparent">
                   <v-card-title primary-title class="layout justify-center">
-                    <div class="headline">Company info</div>
+                    <div class="headline">Qui sommes-nous ?</div>
                   </v-card-title>
                   <v-card-text>
                     Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. Pellentesque habitant morbi tristique senectus
                     et netus et malesuada fames ac turpis egestas. Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum
-                    tincidunt. Suspendisse potenti.
+                    tincidunt.
                   </v-card-text>
                 </v-card>
               </v-flex>
-              <v-flex xs12 sm4 offset-sm1>
+              <v-flex xs12 sm6 md4>
                 <v-card class="elevation-0 transparent">
                   <v-card-title primary-title class="layout justify-center">
-                    <div class="headline">Contact us</div>
+                    <div class="headline">Contactez-nous</div>
                   </v-card-title>
                   <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                    Vous pouvez nous contacter par email, par téléphone ou simplement venir sur place.
                   </v-card-text>
                   <v-list class="transparent">
                     <v-list-tile>
                       <v-list-tile-action>
-                        <v-icon class="secondary--text">phone</v-icon>
+                        <v-icon class="secondary--text">fa-phone</v-icon>
+                      </v-list-tile-action>
+                      <v-list-tile-content>+41 79 433 54 84</v-list-tile-title>
+                      </v-list-tile-content>
+                    </v-list-tile>
+
+                    <v-list-tile>
+                      <v-list-tile-action>
+                        <v-icon class="secondary--text">fa-envelope</v-icon>
                       </v-list-tile-action>
                       <v-list-tile-content>
-                        <v-list-tile-title>777-867-5309</v-list-tile-title>
+                        <v-list-tile-title>info@lifeki.ch</v-list-tile-title>
                       </v-list-tile-content>
                     </v-list-tile>
                     <v-list-tile>
                       <v-list-tile-action>
-                        <v-icon class="secondary--text">place</v-icon>
+                        <v-icon class="secondary--text">fa-map-marker</v-icon>
                       </v-list-tile-action>
                       <v-list-tile-content>
-                        <v-list-tile-title>Chicago, US</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                    <v-list-tile>
-                      <v-list-tile-action>
-                        <v-icon class="secondary--text">email</v-icon>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
+                        <v-list-tile-title>Bienne (le mercredi)</v-list-tile-title>
                       </v-list-tile-content>
                     </v-list-tile>
                   </v-list>
+                </v-card>
+              </v-flex>
+              <v-flex xs12 class="hidden-sm-and-up">
+                <v-card class="elevation-0 transparent">
+                  <v-card-title primary-title class="layout justify-center">
+                    <div class="headline">Suivez-nous</div>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-layout class="social-links" justify-space-around>
+
+                      <a href="https://twitter.com/LifeKI78" target="blank">
+                        <v-icon>fa-twitter</v-icon>
+                      </a>
+                      <a href="https://www.facebook.com/LifeKI78" target="blank">
+                        <v-icon>fa-facebook-square</v-icon>
+                      </a>
+                      <a href="https://plus.google.com/117479743608829098223" target="blank">
+                        <v-icon>fa-google-plus</v-icon>
+                      </a>
+                      <a href="https://lifeki.blogspot.ch/" target="blank">
+                    <img alt="blogger" src="/assets/blogger.png">
+                    </a>
+
+                    </v-layout>
+                  </v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
           </v-container>
         </section>
 
+
+
         <v-footer class="secondary">
           <v-layout row wrap align-center>
             <v-flex xs12>
-              <div class="white--text ml-3">
-                Made with
-                <v-icon class="red--text">favorite</v-icon>
-                by
-                <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a> and
-                <a class="white--text" href="mailto:costa.huang@outlook.com">Costa Huang</a>
+              <div class="ml-3 text-xs-center">
+                ©{{year}} LifeKi.ch | <a id="impressum" href="https://lifeki.ch/fr/impressum" class="white--text">Mentions légales</a>
               </div>
             </v-flex>
           </v-layout>
@@ -198,15 +236,18 @@
       </main>
     </v-app>
   </div>
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.4.4/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/vuetify@0.15.7/dist/vuetify.min.js"></script>
   <script>
     new Vue({
       el: '#app',
       data() {
         return {
           langs: ['français', 'Deutsch', 'English', '日本語'],
-          selectedLang: 'français'
+          shortLangs: ['FR', 'DE', 'EN', 'JA'],
+          selectedLang: 'français',
+          shortSelectedLang: 'FR',
+          year: new Date().getFullYear()
         }
       }
     })
@@ -214,3 +255,69 @@
 </body>
 
 </html>
+<style>
+  .bg {
+    background-color: #5f021f !important;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .secondary {
+    background-color: #212121 !important;
+  }
+
+  .accent {
+    background-color: #ff6e40 !important;
+  }
+
+  .accent--text {
+    color: #ff6e40 !important;
+  }
+
+  .secondary--text {
+    color: #212121 !important;
+  }
+
+  .parallax__image-container {
+    filter: brightness(80%);
+  }
+
+  .toolbar__content .icon {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  .fa-twitter:hover {
+    color: #1da1f2;
+  }
+
+  .fa-facebook-square:hover {
+    color: #3b5998;
+  }
+
+  .fa-google-plus:hover {
+    color: #db4437;
+  }
+
+  .main-title {
+    font-family: 'Shojumaru', cursive;
+    text-shadow: 2px 4px 10px black;
+  }
+
+  .sub-title {
+    text-shadow: 2px 4px 10px black;
+  }
+
+  #blogger {
+    cursor: pointer;
+    position: relative;
+    float: right;
+  }
+
+  #blogger:hover {
+    background-color: darkorange;
+  }
+
+  .social-links a {
+    text-decoration: none;
+  }
+</style>
