@@ -1,0 +1,115 @@
+.preload *,
+.preload *:before,
+.preload *:after {
+  animation-play-state: paused !important;
+}
+
+.bg {
+  background-color: #5f021f !important;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.secondary {
+  background-color: #212121 !important;
+}
+
+.accent {
+  background-color: #ff6e40 !important;
+}
+
+.accent--text {
+  color: #ff6e40 !important;
+}
+
+.secondary--text {
+  color: #212121 !important;
+}
+
+.parallax__image-container {
+  filter: brightness(80%);
+}
+
+.toolbar__content .icon {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.fa-twitter:hover {
+  color: #1da1f2;
+}
+
+.fa-facebook-square:hover {
+  color: #3b5998;
+}
+
+.fa-google-plus:hover {
+  color: #db4437;
+}
+
+.main-title {
+  font-family: 'Shojumaru', cursive;
+  text-shadow: 2px 4px 10px black;
+}
+
+.sub-title {
+  text-shadow: 2px 4px 10px black;
+}
+
+#blogger {
+  cursor: pointer;
+  position: relative;
+  float: right;
+}
+
+#blogger:hover {
+  background-color: darkorange;
+}
+
+.social-links a {
+  text-decoration: none;
+}
+
+.grow-big {
+  opacity: 0;
+  transform: scale(0.6);
+  animation: grow-big 1s cubic-bezier(0, 0.77, 0.33, 2.2) forwards;
+}
+
+h1.main-title {
+  animation-delay: 0.5s;
+}
+
+.sub-title {
+  animation-delay: 1.5s;
+}
+
+@keyframes grow-big {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.call-action {
+  animation: grow-big 1s 2.5s cubic-bezier(0, 0.77, 0.33, 2.2) forwards,
+    wiggle 1s 4s ease-in-out;
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+@keyframes wiggle {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}

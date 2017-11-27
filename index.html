@@ -3,14 +3,16 @@
 
 <head>
   <title>Bento-Box</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Shojumaru|Ubuntu" rel="stylesheet">
   <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link href="https://unpkg.com/vuetify@0.16.5/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" class="preload">
     <v-app dark>
       <v-toolbar class="bg" app>
         <v-layout row justify-space-between>
@@ -27,7 +29,7 @@
               <v-icon>fa-google-plus</v-icon>
             </a>
             <a href="https://lifeki.blogspot.ch/" target="blank">
-            <img alt="blogger" src="/assets/blogger.png" id="blogger">
+              <img alt="blogger" src="/assets/blogger.png" id="blogger">
             </a>
           </div>
 
@@ -61,9 +63,9 @@
           <section>
             <v-parallax src="assets/hero.jpg" height="500">
               <v-layout column align-center justify-center>
-                <h1 class="mb-2 display-3 text-xs-center main-title">Bento-Box</h1>
-                <div class="headline mb-3 text-xs-center sub-title">Service de livraison de boîtes à bentō</div>
-                <v-btn class="accent mt-5" large round href="https://bentobox-lieferservice.ch/fr/">
+                <h1 class="mb-2 display-3 text-xs-center main-title grow-big">Bento-Box</h1>
+                <div class="headline mb-3 text-xs-center sub-title grow-big">Service de livraison de boîtes à bentō</div>
+                <v-btn class="accent mt-5 call-action" large round href="https://bentobox-lieferservice.ch/fr/">
                   Vers la boutique
                 </v-btn>
               </v-layout>
@@ -76,14 +78,14 @@
                 <div class="text-xs-center">
                   <h2 class="headline">Mercredi midi c'est bentō !</h2>
                   <span class="subheading">
-                  Recevez votre boîte à bentō en toute simplicité
-                </span>
+                    Recevez votre boîte à bentō en toute simplicité
+                  </span>
                 </div>
               </v-flex>
               <v-flex xs12>
                 <v-container grid-list-xl>
                   <v-layout row wrap align-center>
-                    <v-flex xs12 md4>
+                    <v-flex xs12 md4 class="bullet-point">
                       <v-card class="elevation-0 transparent">
                         <v-card-text class="text-xs-center">
                           <v-icon x-large class="accent--text">fa-truck</v-icon>
@@ -98,7 +100,7 @@
                         </v-card-text>
                       </v-card>
                     </v-flex>
-                    <v-flex xs12 md4>
+                    <v-flex xs12 md4 class="bullet-point">
                       <v-card class="elevation-0 transparent">
                         <v-card-text class="text-xs-center">
                           <img alt="bentobox" src="/assets/bento.svg" width="42" heigth="41.6">
@@ -112,7 +114,7 @@
                         </v-card-text>
                       </v-card>
                     </v-flex>
-                    <v-flex xs12 md4>
+                    <v-flex xs12 md4 class="bullet-point">
                       <v-card class="elevation-0 transparent">
                         <v-card-text class="text-xs-center">
                           <v-icon x-large class="accent--text">fa-heart</v-icon>
@@ -212,8 +214,8 @@
                           <v-icon>fa-google-plus</v-icon>
                         </a>
                         <a href="https://lifeki.blogspot.ch/" target="blank">
-                    <img alt="blogger" src="/assets/blogger.png">
-                    </a>
+                          <img alt="blogger" src="/assets/blogger.png">
+                        </a>
 
                       </v-layout>
                     </v-card-text>
@@ -229,7 +231,8 @@
         <v-layout row wrap align-center>
           <v-flex xs12>
             <div class="ml-3 text-xs-center">
-              ©{{year}} LifeKi.ch | <a id="impressum" href="https://lifeki.ch/fr/impressum" class="white--text">Mentions légales</a>
+              ©{{year}} LifeKi.ch |
+              <a id="impressum" href="https://lifeki.ch/fr/impressum" class="white--text">Mentions légales</a>
             </div>
           </v-flex>
         </v-layout>
@@ -240,6 +243,7 @@
   <script src="https://unpkg.com/vue@2.4.4/dist/vue.min.js"></script>
   <script src="https://unpkg.com/vuetify@0.16.5/dist/vuetify.min.js"></script>
   <script>
+    window.addEventListener('load', () => document.querySelector('#app').classList.remove('preload'))
     new Vue({
       el: '#app',
       data() {
@@ -256,69 +260,3 @@
 </body>
 
 </html>
-<style>
-  .bg {
-    background-color: #5f021f !important;
-    font-family: 'Ubuntu', sans-serif;
-  }
-
-  .secondary {
-    background-color: #212121 !important;
-  }
-
-  .accent {
-    background-color: #ff6e40 !important;
-  }
-
-  .accent--text {
-    color: #ff6e40 !important;
-  }
-
-  .secondary--text {
-    color: #212121 !important;
-  }
-
-  .parallax__image-container {
-    filter: brightness(80%);
-  }
-
-  .toolbar__content .icon {
-    margin-right: 15px;
-    cursor: pointer;
-  }
-
-  .fa-twitter:hover {
-    color: #1da1f2;
-  }
-
-  .fa-facebook-square:hover {
-    color: #3b5998;
-  }
-
-  .fa-google-plus:hover {
-    color: #db4437;
-  }
-
-  .main-title {
-    font-family: 'Shojumaru', cursive;
-    text-shadow: 2px 4px 10px black;
-  }
-
-  .sub-title {
-    text-shadow: 2px 4px 10px black;
-  }
-
-  #blogger {
-    cursor: pointer;
-    position: relative;
-    float: right;
-  }
-
-  #blogger:hover {
-    background-color: darkorange;
-  }
-
-  .social-links a {
-    text-decoration: none;
-  }
-</style>
